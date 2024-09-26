@@ -1,0 +1,55 @@
+<section class="container">
+    <header>Registration Form</header>
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+      <div class="input-box">
+        <input formControlName="firstName" placeholder="First Name" />
+        <div *ngIf="registrationForm.get('firstName').invalid && registrationForm.get('firstName').touched" class="error">
+          First Name is required.
+        </div>
+      </div>
+  
+      <div class="input-box">
+        <input formControlName="lastName" placeholder="Last Name" />
+        <div *ngIf="registrationForm.get('lastName').invalid && registrationForm.get('lastName').touched" class="error">
+          Last Name is required.
+        </div>
+      </div>
+  
+      <div class="input-box">
+        <input formControlName="email" placeholder="Email" />
+        <div *ngIf="registrationForm.get('email').invalid && registrationForm.get('email').touched" class="error">
+          Valid Email is required.
+        </div>
+      </div>
+  
+      <div class="input-box">
+        <input type="password" formControlName="password" placeholder="Password" />
+        <div *ngIf="registrationForm.get('password').invalid && registrationForm.get('password').touched" class="error">
+          Password is required (min 6 characters).
+        </div>
+      </div>
+  
+      <input type="submit" value="Register" class="submit-btn" />
+    </form>
+  </section>
+  
+   <!-- <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="firstName">First Name:</label>
+      <input type="text" id="firstName" formControlName="firstName" required>
+    </div>
+    <div>
+      <label for="lastName">Last Name:</label>
+      <input type="text" id="lastName" formControlName="lastName" required>
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" formControlName="email" required>
+    </div>
+    <div>
+      <label for="password">Password:</label>
+      <input type="password" id="password" formControlName="password" required>
+    </div>
+    <button type="submit" [disabled]="registrationForm.invalid">Submit</button>
+  </form>
+   -->
